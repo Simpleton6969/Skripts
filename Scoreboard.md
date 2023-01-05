@@ -13,12 +13,13 @@ function scoreboard(p: player): # Creating a function and inputting a player to 
 ```
 
 Next we need to call the function to provide the player with the scoreboard.
-For this we are going to utilise the `on join` event and make a while loop for the player being online. This is the least laggy method possible.
+For this we are going to utilise the `on join` event and make a while loop for the player being online. 
+This is the least laggy method possible.
 ```
 on join:
-    while player is online: # we only want to set the scoreboard of the player while they are online, so we can use the while player is online loop.
+    while player is online:
         scoreboard(player) # calls the scoreboard function
-        wait 1 second # we need a wait in a while loop otherwise it would crash our server, you can change this wait to whatever you want
+        wait 1 second # every while loop needs a wait otherwise the server would crash.
 ```
 
 Finally, you can give the player the ability to toggle this scoreboard.
