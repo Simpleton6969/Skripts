@@ -36,6 +36,7 @@ Full code without comments:
 ```
 function scoreboard(p: player):
     set title of {_p}'s scoreboard to formatted "    &8&lUnmanned    "
+    set line 2 of {_p}'s scoreboard to "&2Line 2" # sets line 2 of the scoreboard
     set line 1 of {_p}'s scoreboard to ""
 
 on join:
