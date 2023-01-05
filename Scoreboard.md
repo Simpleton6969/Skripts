@@ -4,7 +4,8 @@ This tutorial will teach you how to make a scoreboard using skbee that will upda
 Requirements: SkBee
 
 
-To get started we will create a function for the setting of the scoreboard. This basic one will have a title and two lines which you can add to.
+To get started we will create a function for the setting of the scoreboard. 
+This basic one will have a title and two lines which you can add to.
 ```
 function scoreboard(p: player): # Creating a function and inputting a player to provide the scoreboard to
     set title of {_p}'s scoreboard to formatted "&3Title" # sets the title of the scoreboard
