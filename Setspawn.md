@@ -1,3 +1,17 @@
+In this tutorial we will create a simple spawn and setspawn with a 5 second delay between command completion and teleportation.
+Including checking if the player has moved.
+No requirements.
+
+Lets get started by making the setspawn command
+```
+command /setspawn:
+	permission: skript.setspawn # makes sure that only permitted users can execute this command
+	permission message: "&cMissing &4skript.setspawn &cpermission" # lets you know what permission you are missing
+	trigger:
+		set {spawn} to player's location
+		send "Spawn has been set to your location. &e/spawn"
+```
+		
 Full code without comments:
 ```command /spawn:
 	cooldown: 5 seconds
