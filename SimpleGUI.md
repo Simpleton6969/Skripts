@@ -59,7 +59,8 @@ on inventory click:
 ```
 
 Full code without comments
-```command /simplegui [<integer>]:
+```
+command /simplegui [<integer>]:
 	trigger:
 		if arg-1 is set:
 			if arg-1 >= 1:
