@@ -65,6 +65,7 @@ command /10secondcommand:
             send "Please wait"
         else:
             #player is off cooldown
+            send "You are off cooldown"
             cooldownAdd(player, 10)
 ```
 
@@ -72,20 +73,22 @@ This is a really cool function to be adapted for several uses, such as below
 
 ```
 function cooldownAdd(p: player, i: integer, cool: text):
-    set {_t} to ("%{_i}% minutes" parsed as time span)
-    set {player::%{_cool}%::%{_p}'s uuid%} to {_t}
+    set {_t} to ("%{_i}% seconds" parsed as time span) after now
+    set {cooldown::%{_p}'s uuid%::%{_cool}%} to {_t}
 
 function cooldownCheck(p: player, cool: text) :: boolean:
-    set {_t} to ({player::%{_cool}%::%{_p}'s uuid%}) ? now)
+    set {_t} to ({cooldown::%{_p}'s uuid%::%{_cool}%} ? now)
     if {_t} > now:
         return true
     return false
-
+	
 command /every10seconds <text>:
-  trigger:
-    if cooldownCheck(player, text) = true:
-      # player is on cooldown
-    else:
-      # player is off cooldown
-      cooldownAdd(player, 10, arg-1)
+	trigger:
+		if cooldownCheck(player, arg-1) = true:
+			# player is on cooldown
+			send "Please wait"
+		else:
+			# player is off cooldown
+			send "You are off cooldown"
+			cooldownAdd(player, 10, arg-1)
 ```
