@@ -64,7 +64,7 @@ function cooldownCheck(p: player, cool: text) :: boolean:
 
 command /every10seconds <text>:
   trigger:
-    if cooldownCheck(player) = true:
+    if cooldownCheck(player, text) = true:
       # player is on cooldown
     else:
       # player is off cooldown
