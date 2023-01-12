@@ -15,7 +15,8 @@ This is as simple as setting a variable to the executors location.
 
 As for the spawn command we want to make a 5 second delay between command execution and teleporting.
 So we will create a 5 times loop and compare the players location to the players location upon command completion.
-```command /spawn:
+```
+command /spawn:
 	cooldown: 5 seconds # adds a 5 second cooldown to the command
 	cooldown message: "You must wait &e%remaining time%" # shows remaining time between commands
 	trigger:
@@ -40,7 +41,8 @@ So we will create a 5 times loop and compare the players location to the players
 ```
 
 Full code without comments:
-```command /spawn:
+```
+command /spawn:
 	cooldown: 5 seconds
 	cooldown message: "You must wait &e%remaining time%"
 	trigger:
