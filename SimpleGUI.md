@@ -16,10 +16,8 @@ command /simplegui [<integer>]: # creates a command with an optional argument so
 		else:
 			send "Specify an integer from 1-6"
 ```
-
-Now we have the base of the command made so we can actually make a gui, lets make the gui!
-We are going to set the top row to red stained glass panes and the middle slot of it to the players skull
-
+Now we have the base of the command made so that we can make a GUI; let's make the GUI!
+We are going to set the top row to red stained glass panes and the middle slot of it to the player's skull
 ```
 command /simplegui [<integer>]:
 	trigger:
@@ -39,12 +37,11 @@ command /simplegui [<integer>]:
 		else:
 			send "Specify an integer from 1-6"
 ```
-And BOOM! You have a vanilla skript gui!
+And BOOM! You have a vanilla skript GUI!
 
-Why dont we make it do things when we click slots in the inventory though :D
+Why don't we make it do things when we click slots in the inventory, though :D
 
-For this we can use the on inventory click event.
-Theres a couple of different methods of checking slots, such as index (slot number), name of slot and type of slot.
+For this, we can use the on inventory click event. There are several different methods of checking slots, such as index (slot number), name of slot and type of slot.
 ```
 on inventory click:
 	if event-inventory = metadata value "gui" of player: # checking the inventory is the inventory we made by comparing it with the metadata of the player
