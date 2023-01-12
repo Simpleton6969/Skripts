@@ -97,6 +97,18 @@ With:
 		
 		backup interval: 2 hours
 ```
+You can test if you have ram vars enabled by using this skript below.
+Simply set the variable, restart your server and test the variable.
+If your name is sent in chat then ram vars arent enabled, if 0 is then ram vars are enabled.
+```
+command /sets:
+	trigger:
+		set {-ram} to player's display name
+		broadcast "{-ram} has been set to %{-ram}%"
+command /test:
+	trigger:
+		broadcast ({-ram} ? 0)
+```
 
 The final type of variables are list variables.
 List variables are.... well... they're lists :D
