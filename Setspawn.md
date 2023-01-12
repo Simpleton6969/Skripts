@@ -26,7 +26,7 @@ command /spawn:
 			send "&a5"
 			set {_t} to 5
 			loop 5 times: # creating a 5 second loop by looping 5 times and adding a 1 second wait
-				if player's location is not {_loc}: # compare players location with location on command
+				if distance between player's location and {_loc} > 0.25: # compare players location with location on command
 					send "&cTeleportation cancelled"
 					stop # this will stop the code if the players location does not match their location on command
 				else:
