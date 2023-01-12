@@ -5,7 +5,8 @@ No worries! We can fix that easily.
 2) Gloabl variables
 3) Ram variables
 4) List variables
-5) Tips and tricks
+5) Option variables
+6) Tips and tricks
 ```
 Theres important things to consider when setting a variable.
 Such as what type of variable to use. So lets disuss the different types of variables and how to use them.
@@ -109,6 +110,17 @@ on damage:
 on death:
   broadcast "All attackers of %victim%: %{attackers::%victim's uuid%::*}%"
   delete {attackers::%victim's uuid%::*}
+```
+Option variables are a great thing for configurability, for example, if you plan on handing your skript to somebody else or changing the value of something in your editor easily then option variables are what you're looking for.
+You can use an option variable like this:
+```
+options:
+	prefix: &2&lMyServerName
+	price: &6$400
+
+command /ServerPrice:
+	trigger:
+		send "You can buy {@prefix} for {@price}" to player
 ```
 
 You may have also been sent here because you are using player name in variables.
