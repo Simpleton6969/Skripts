@@ -75,6 +75,28 @@ command /spawnbob:
     set {-creeper} to last spawned entity
 ```
 These are useful for some peoples uses.
+Unfortunately ram vars arent enabled by default and you have to enable them yourself in the skript config.
+Simply go into the skript config file and find the databases section located near the bottom of the file.
+Next you will need to find and replace:
+```
+		type: CSV
+		
+		pattern: .*
+		
+		file: ./plugins/Skript/variables.csv
+		
+		backup interval: 2 hours
+```
+With:
+```
+		type: CSV
+		
+		pattern: (?!-).*
+		
+		file: ./plugins/Skript/variables.csv
+		
+		backup interval: 2 hours
+```
 
 The final type of variables are list variables.
 List variables are.... well... they're lists :D
