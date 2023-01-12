@@ -1,12 +1,12 @@
 Your variables are bad! That is why you are here isnt it?
 No worries! We can fix that easily.
-
+```
 1) Local variables
 2) Gloabl variables
 3) Ram variables
 4) List variables
 5) Tips and tricks
-
+```
 Theres important things to consider when setting a variable.
 Such as what type of variable to use. So lets disuss the different types of variables and how to use them.
 
