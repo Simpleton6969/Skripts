@@ -5,7 +5,7 @@ No requirements
 2) [Code to create GUI](#GUI-code)
 3) [Inventory click](#Inventory-code)
 4) [Full code](#Full-code)
-5) 
+
 For this we are gonna use a command with an integer argument the player can use to make a custom amount of rows.
 ## GUI command
 ```vb
