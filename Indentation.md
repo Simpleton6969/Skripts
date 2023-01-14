@@ -6,6 +6,7 @@ In skript that indentation can be many things, tabs and spaces. You can indent w
 It is recommended though that if you use tabs, use 1 tab. And if you use spaces, use 4 spaces for each indent.
 
 When choosing what to indent, it is important to remember how you indented. 
+It is important to note that YML files cannot use tabs and will cause an error.
 The reason for this is you cannot switch between spaces and tabs for indentation and you cannot switch how much you indent (aka from 2 to 4 to 2 to 6 etc).
 
 A very simple way of knowing how to indent is after every: in your code. Some exceptions to this apply, and we will cover those too.
