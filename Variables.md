@@ -173,3 +173,4 @@ You may have also been sent here because you are using player's name in variable
 This is bad because if the player changes their name, they will lose all of their precious data and grinding time you have made for them.    
 To fix this, all we need to do is replace our variables with better variables :D.   
 Instead of `{var.%player%}` use `{var::%player's uuid%}`
+
