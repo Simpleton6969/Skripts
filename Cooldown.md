@@ -71,7 +71,7 @@ command /10secondcommand:
 
 This is a really cool function to be adapted for several uses, such as below
 
-```v
+```vb
 function cooldownAdd(p: player, i: integer, cool: text):
     set {_t} to ("%{_i}% seconds" parsed as time span) after now
     set {cooldown::%{_p}'s uuid%::%{_cool}%} to {_t}
