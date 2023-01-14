@@ -2,11 +2,11 @@ In this tutorial we will create a simple spawn and setspawn with a 5 second dela
 Including checking if the player has moved.
 No requirements.
 
-1) [The basics](Skin-and-bones-commands)
-2) [Variable checking](Variable-checking)
-3) [Cooldown and delay](Cooldown-and-delay)
-4) [Location checking](Location-checking)
-5) [Full code](Full-code)
+1) [The basics](#Skin-and-bones-commands)
+2) [Variable checking](#Variable-checking)
+3) [Cooldown and delay](#Cooldown-and-delay)
+4) [Location checking](#Location-checking)
+5) [Full code](#Full-code)
 
 ## Skin and bones commands
 Lets get started by making the setspawn command
