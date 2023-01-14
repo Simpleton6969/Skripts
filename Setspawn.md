@@ -3,7 +3,7 @@ Including checking if the player has moved.
 No requirements.
 
 Lets get started by making the setspawn command
-```
+```vb
 command /setspawn:
 	permission: skript.setspawn # makes sure that only permitted users can execute this command
 	permission message: "&cMissing &4skript.setspawn &cpermission" # lets you know what permission you are missing
@@ -15,7 +15,7 @@ This is as simple as setting a variable to the executors location.
 
 As for the spawn command we want to make a 5 second delay between command execution and teleporting.
 So we will create a 5 times loop and compare the players location to the players location upon command completion.
-```
+```vb
 command /spawn:
 	cooldown: 5 seconds # adds a 5 second cooldown to the command
 	cooldown message: "You must wait &e%remaining time%" # shows remaining time between commands
@@ -41,7 +41,7 @@ command /spawn:
 ```
 
 Full code without comments:
-```
+```vb
 command /spawn:
 	cooldown: 5 seconds
 	cooldown message: "You must wait &e%remaining time%"
