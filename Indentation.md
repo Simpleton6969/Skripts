@@ -74,7 +74,6 @@ command /PowerOF <integer> <number>:
     set {_po} to PowerOf(arg-1, arg-2)
     send "%arg-1% to the power of %arg-1% is %{_po}%"
 function PowerOf(t: integer, i: number):: number:
-  loop {_t} times:
-    set {_i} to {_i}*{_i}
+  set {_i} to {_i}^{_t}
   return {_i}
 ```
