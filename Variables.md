@@ -1,21 +1,22 @@
-Your variables are wrong! That is why you are here. 
+# Variables
+Your variables are wrong! That is why you are here.    
 No worries! We can fix that quickly.
-```
-1) Local variables
-2) Gloabl variables
-3) Ram variables
-4) List variables
-5) Option variables
-6) Tips and tricks
-```
-There are essential things to consider when setting a variable.
-Such as what type of variable to use. So let's discuss the different variables and how to use them.
+1) [Local variables](#local-variables)
+2) [Gloabl variables](#global-variables)
+3) [List variables](#list-variables)
+4) [RAM variables](#ram-variables)
+5) [Option](#options)
+6) [Tips and tricks](#tips-and-tricks)
 
-Local variables will only be stored inside that trigger, meaning that you can only use them in that segment of skript.
+There are essential things to consider when setting a variable.    
+Such as what type of variable to use. So let's discuss the different variable types and how to use them.
+
+## Local Variables
+Local variables will only be stored inside that trigger, meaning that you can only use them in that segment of the script.   
 They are suitable for quickly storing data you will not need elsewhere.
 
-The code below is a bad example of using local variables.
-```
+The code below is a example of incorrectly using local variables.
+```vb
 command /setspawn:
 	trigger:
 		set {_spawn} to player's location # <==========
@@ -24,9 +25,10 @@ command /spawn:
   trigger:
     teleport player to {_spawn}
 ```
-This is bad because when the player tries to use their spawn command, they will realize that the variable is not set.
-A good use of a local variable can be shown below:
-```
+This is incorrect because when the player tries to use their spawn command, they will realize that the variable is not set.   
+
+The correct use of a local variable can be seen below:
+```vb
 command /healthcheck:
   trigger:
     set {_health} to player's health
@@ -34,14 +36,16 @@ command /healthcheck:
     if {_health} = player's health:
       send "Your health has remained the same!"
 ```
-This is good because it is not storing the data permanently when it doesn't need to.
+This is correct because it is not storing the data permanently when it doesn't need to.
 
-To fix the setspawn skript we need to use a global variable
-Global variables are variables that are stored permanently.
-Unfortunately you cannot store mobs in variables permanently; you can keep them in a global var until the server stops.
+## Global Variables
+To fix the setspawn script we need to use a global variable.   
+Global variables are variables that are stored permanently, we will be talking about this next.   
+Some objects in Skript cannot be stored in variables permanently, such as entities, this is due to the fact they aren't serialized.   
+If you attempt this, you will get a warning. The variable can be stored until the server stops.
 
-The fixed skript is below.
-```
+The fixed script is below.
+```vb
 command /setspawn:
 	trigger:
 		set {spawn} to player's location # <==========
@@ -51,9 +55,9 @@ command /spawn:
     teleport player to {spawn}
 ```
 
-But you could also be using global variables wrong.
-As seen below.
-```
+But you could also be using global variables wrong.   
+As seen below:
+```vb
 command /healthcheck:
   trigger:
     set {health} to player's health
@@ -61,21 +65,63 @@ command /healthcheck:
     if {health} = player's health:
       send "Your health has remained the same!"
 ```
-This isn't good because anybody could run that command during the wait, and the health variable will be set to their health and not yours.
+This isn't good because anybody could run that command during the wait, and the health variable will be set to their health and not yours.    
+This would be a good time to use a local variable, since it doesn't need to be stored outside of this trigger.   
+Another option is using a list variable. We'll talk about that next.
 
-Another type of variable you could use is called a ram variable.
-They are used for storing data until the server stops
-You can use these to store mobs, so you do not get a caution error in your skript.
+## List Variables
+The final type of variable is a list variables.   
+List variables are.... well... they're lists :D
+We can use them to bulk store data that can be looped or is easily accessible.
 
-``` 
+Below is a common misconception of what list variables are; this is not a list variable and is bad :(
+```vb
+command /setme:
+  trigger:
+    set {setme.%player%} to true
+```
+This is bad is because we cannot loop everything inside of the setme variable.   
+Below is an example of a list variable
+```vb
+command /setme:
+  trigger:
+    set {setme::%player's uuid%} to true
+```
+Now we can loop that variable and do stuff with it.   
+To access everything inside of a list variable, put `*` after `::`
+```vb
+command /loopme:
+  trigger:
+    loop {setme::*}:
+      if loop-value = true:
+        broadcast "True yay"
+```
+An example of a good usage of loop variables is below.   
+It will track all the attackers of a victim
+```vb
+on damage:
+  add attacker's name to {attackers::%victim's uuid%::*} 
+on death:
+  broadcast "All attackers of %victim%: %{attackers::%victim's uuid%::*}%"
+  delete {attackers::%victim's uuid%::*}
+```
+
+## RAM Variables
+Another type of variable you could use is called a ram variable.   
+They are used for storing data until the server stops.   
+You can use these to objects which do not need to persist thru server restarts.
+
+``` vb
 command /spawnbob:
   trigger:
     spawn a creeper at player's location
     set {-creeper} to last spawned entity
 ```
 These are useful for some people's uses.
-Unfortunately, ram vars aren't enabled by default, and you must enable them in the skript config.
-Simply go into the skript config file and find the databases section near the bottom.
+
+### Enabling RAM Variables
+Unfortunately, ram vars aren't enabled by default, and you must enable them in the skript config.   
+Simply go into the skript config file and find the databases section near the bottom.    
 Next, you will need to find and replace the following:
 ```
 		type: CSV
@@ -96,10 +142,10 @@ With:
 		
 		backup interval: 2 hours
 ```
-You can test if you have ram vars enabled by using this skript below.
-Simply set the variable, restart your server and test the variable.
+You can test if you have ram vars enabled by using this ssript below.   
+Simply set the variable, restart your server and test the variable.   
 If your name is sent in chat, then ram vars aren't enabled, if 0 is, ram vars are enabled.
-```
+```vb
 command /sets:
 	trigger:
 		set {-ram} to player's display name
@@ -109,44 +155,10 @@ command /test:
 		broadcast ({-ram} ? 0)
 ```
 
-The final type of variable is list variables.
-List variables are.... well... they're lists :D
-We can use them to bulk store data that can be looped or is easily accessible.
-
-Below is a common misconception of what list variables are; this is not a list variable and is bad :{
-```
-command /setme:
-  trigger:
-    set {setme.%player%} to true
-```
-This is bad is because we cannot loop everything inside of the setme variable.
-Below is an example of a list variable
-```
-command /setme:
-  trigger:
-    set {setme::%player's uuid%} to true
-```
-Now we can loop that variable and do stuff with it.
-To access everything inside of a list variable, put * after ::
-```
-command /loopme:
-  trigger:
-    loop {setme::*}:
-      if loop-value = true:
-        broadcast "True yay"
-```
-An example of a good usage of loop variables is below.
-It will track all the attackers of a victim
-```
-on damage:
-  add attacker's name to {attackers::%victim's uuid%::*} 
-on death:
-  broadcast "All attackers of %victim%: %{attackers::%victim's uuid%::*}%"
-  delete {attackers::%victim's uuid%::*}
-```
-Option variables are fantastic for configurability; for example, if you plan on handing your skript to somebody else or changing the value of something in your editor quickly, then option variables are what you're looking for.
-You can use an option variable like this:
-```
+## Options
+Options are fantastic for configurability; for example, if you plan on handing your script to somebody else or changing the value of something in your editor quickly, then options are what you're looking for.   
+You can use an option like this:
+```vb
 options:
 	prefix: &2&lMyServerName
 	price: &6$400
@@ -156,7 +168,8 @@ command /ServerPrice:
 		send "You can buy {@prefix} for {@price}" to player
 ```
 
-You may have also been sent here because you are using player's name in variables.
-This is bad because if the player changes their name, they will lose all of their precious data and grinding time you have made for them.
-To fix this, all we need to do is replace our variables with better variables :D
+## Tips and Tricks
+You may have also been sent here because you are using player's name in variables.   
+This is bad because if the player changes their name, they will lose all of their precious data and grinding time you have made for them.    
+To fix this, all we need to do is replace our variables with better variables :D.   
 Instead of `{var.%player%}` use `{var::%player's uuid%}`
