@@ -102,4 +102,5 @@ command /setspawn:
 	permission message: "&cMissing &4skript.setspawn &cpermission"
 	trigger:
 		set {spawn} to player's location
-		send "Spawn has been set to your location. &e/spawn"```
+		send "Spawn has been set to your location. &e/spawn"
+```
