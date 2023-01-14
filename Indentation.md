@@ -68,7 +68,7 @@ on right click:
 ```
 
 If statements arent the only thing requiring indentation though, loops, functions, commands, triggers and more also require indentation.
-```v
+```vb
 command /PowerOF <integer> <number>:
   trigger:
     set {_po} to PowerOf(arg-1, arg-2)
