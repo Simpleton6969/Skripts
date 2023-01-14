@@ -2,7 +2,7 @@ Struggling with making GUI's with vanilla skript? I can help!
 No requirements
 
 For this we are gonna use a command with an integer argument the player can use to make a custom amount of rows.
-```
+```vb
 command /simplegui [<integer>]: # creates a command with an optional argument so we can send custom messages
 	trigger:
 		if arg-1 is set: # making sure the argument is set
@@ -18,7 +18,7 @@ command /simplegui [<integer>]: # creates a command with an optional argument so
 ```
 Now we have the base of the command made so that we can make a GUI; let's make the GUI!
 We are going to set the top row to red stained glass panes and the middle slot of it to the player's skull
-```
+```vb
 command /simplegui [<integer>]:
 	trigger:
 		if arg-1 is set:
@@ -42,7 +42,7 @@ And BOOM! You have a vanilla skript GUI!
 Why don't we make it do things when we click slots in the inventory, though :D
 
 For this, we can use the on inventory click event. There are several different methods of checking slots, such as index (slot number), name of slot and type of slot.
-```
+```vb
 on inventory click:
 	if event-inventory = metadata value "gui" of player: # checking the inventory is the inventory we made by comparing it with the metadata of the player
 		cancel event # making it so we cannot move the inventory slots around
@@ -56,7 +56,7 @@ on inventory click:
 ```
 
 Full code without comments
-```
+```vb
 command /simplegui [<integer>]:
 	trigger:
 		if arg-1 is set:
