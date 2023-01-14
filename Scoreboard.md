@@ -6,7 +6,7 @@ Requirements: SkBee
 
 To get started we will create a function for the setting of the scoreboard. 
 This basic one will have a title and two lines which you can add to.
-```
+```vb
 function scoreboard(p: player): # Creating a function and inputting a player to provide the scoreboard to
     set title of {_p}'s scoreboard to formatted "&3Title" # sets the title of the scoreboard
     set line 2 of {_p}'s scoreboard to "&2Line 2" # sets line 2 of the scoreboard
@@ -16,7 +16,7 @@ function scoreboard(p: player): # Creating a function and inputting a player to 
 Next we need to call the function to provide the player with the scoreboard.
 For this we are going to utilise the `on join` event and make a while loop for the player being online. 
 This is the least laggy method possible.
-```
+```vb
 on join:
     while player is online:
         scoreboard(player) # calls the scoreboard function
@@ -25,7 +25,7 @@ on join:
 
 Finally, you can give the player the ability to toggle this scoreboard.
 They can use the command or any of the aliases to enable or disable their scoreboard
-```
+```vb
 command /toggle:
     aliases: /togglesc , /togglescoreboard , /scoreboard
     trigger:
@@ -33,7 +33,7 @@ command /toggle:
 ```
 
 Full code without comments:
-```
+```vb
 function scoreboard(p: player):
     set title of {_p}'s scoreboard to formatted "    &8&lUnmanned    "
     set line 2 of {_p}'s scoreboard to "&2Line 2" # sets line 2 of the scoreboard
