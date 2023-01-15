@@ -157,7 +157,7 @@ function warp(p: player, w: text):
 	send "&eTeleportation started, please do not move" to {_p}
 ```
 Now lets make the 5 second wait and the teleport part of our function.
-For an explination on our this works check out [my simple spawn skript]
+For an explination on our this works check out [my simple spawn skript](https://github.com/Simpleton6969/Skripts/blob/main/Setspawn.md)
 ```vb
 	set {_loc} to {_p}'s location
 	send "5" to {_p}
