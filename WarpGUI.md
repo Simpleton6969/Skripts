@@ -104,7 +104,8 @@ on tab complete:
 			set {_x} to loop-value
 			replace every "warp." in {_x} with ""
 			add {_x} to {_list2::*}
-		set tab completions for position 1 to {_list2::*}```
+		set tab completions for position 1 to {_list2::*}
+```
 ## Warp GUI
 As for the GUI code, we will use the minimum amount of rows needed for the warps.
 Remember that the maximum amount of rows we can have is 6, meaning the maximum warps we can have is 54.
