@@ -81,22 +81,17 @@ command /spawn:
 	trigger:
 		if {spawn} is set:
 			set {_loc} to player's location
-			send "Stand still for 5 seconds to be teleported"
-			send "&a5"
-			set {_t} to 5
 			loop 5 times:
-				if player's location is not {_loc}:
-					send "&cTeleportation cancelled"
+				wait 1 second
+				if distance between {_loc} and player's location > 0.25:
+					send "&cYou have moved, teleportation cancelled."
 					stop
 				else:
-					wait 1 second
-					remove 1 from {_t}
-					if {_t} > 0:
-						send "&a%{_t}%"
+					send "%5-loop-value%"
 			teleport player to {spawn}
-			send "&2Teleport successful, welcome to spawn."
+			send "You have been teleported to &eSpawn"
 		else:
-			send "Spawn is not set. &e/setspawn &rto set"
+			send "&6Spawn &7is not set &6/setspawn"
 command /setspawn:
 	permission: skript.setspawn
 	permission message: "&cMissing &4skript.setspawn &cpermission"
