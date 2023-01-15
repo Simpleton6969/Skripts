@@ -18,23 +18,23 @@ They are suitable for quickly storing data you will not need elsewhere.
 The code below is a example of WRONGLY using local variables.
 ```vb
 command /setspawn:
-	trigger:
-		set {_spawn} to player's location # <==========
-		send "Spawn has been set to your location. &e/spawn"
+    trigger:
+        set {_spawn} to player's location # <==========
+        send "Spawn has been set to your location. &e/spawn"
 command /spawn:
-  trigger:
-    teleport player to {_spawn}
+    trigger:
+        teleport player to {_spawn}
 ```
 This is incorrect because when the player tries to use their spawn command, they will realize that the variable is not set.   
 
 The correct use of a local variable can be seen below:
 ```vb
 command /healthcheck:
-  trigger:
-    set {_health} to player's health
-    wait 1 second
-    if {_health} = player's health:
-      send "Your health has remained the same!"
+    trigger:
+        set {_health} to player's health
+        wait 1 second
+        if {_health} = player's health:
+            send "Your health has remained the same!"
 ```
 This is correct because it is not storing the data permanently when it doesn't need to.
 
@@ -47,23 +47,23 @@ If you attempt this, you will get a warning. The variable can be stored until th
 The fixed script is below.
 ```vb
 command /setspawn:
-	trigger:
-		set {spawn} to player's location # <==========
-		send "Spawn has been set to your location. &e/spawn"
+    trigger:
+        set {spawn} to player's location # <==========
+        send "Spawn has been set to your location. &e/spawn"
 command /spawn:
-  trigger:
-    teleport player to {spawn}
+    trigger:
+        teleport player to {spawn}
 ```
 
 But you could also be using global variables wrong.   
 As seen below:
 ```vb
 command /healthcheck:
-  trigger:
-    set {health} to player's health
-    wait 1 second
-    if {health} = player's health:
-      send "Your health has remained the same!"
+    trigger:
+        set {health} to player's health
+        wait 1 second
+        if {health} = player's health:
+            send "Your health has remained the same!"
 ```
 This isn't good because anybody could run that command during the wait, and the health variable will be set to their health and not yours.    
 This would be a good time to use a local variable, since it doesn't need to be stored outside of this trigger.   
@@ -77,33 +77,33 @@ We can use them to bulk store data that can be looped or is easily accessible.
 Below is a common misconception of what list variables are; this is not a list variable and is bad :(
 ```vb
 command /setme:
-  trigger:
-    set {setme.%player%} to true
+    trigger:
+        set {setme.%player%} to true
 ```
 This is bad is because we cannot loop everything inside of the setme variable.   
 Below is an example of a list variable
 ```vb
 command /setme:
-  trigger:
-    set {setme::%player's uuid%} to true
+    trigger:
+        set {setme::%player's uuid%} to true
 ```
 Now we can loop that variable and do stuff with it.   
 To access everything inside of a list variable, put `*` after `::`
 ```vb
 command /loopme:
-  trigger:
-    loop {setme::*}:
-      if loop-value = true:
-        broadcast "True yay"
+    trigger:
+        loop {setme::*}:
+            if loop-value = true:
+                broadcast "True yay"
 ```
 An example of a good usage of loop variables is below.   
 It will track all the attackers of a victim
 ```vb
 on damage:
-  add attacker's name to {attackers::%victim's uuid%::*} 
+    add attacker's name to {attackers::%victim's uuid%::*} 
 on death:
-  broadcast "All attackers of %victim%: %{attackers::%victim's uuid%::*}%"
-  delete {attackers::%victim's uuid%::*}
+    broadcast "All attackers of %victim%: %{attackers::%victim's uuid%::*}%"
+    delete {attackers::%victim's uuid%::*}
 ```
 
 ## RAM Variables
@@ -147,12 +147,12 @@ Simply set the variable, restart your server and test the variable.
 If your name is sent in chat, then ram vars aren't enabled, if 0 is, ram vars are enabled.
 ```vb
 command /sets:
-	trigger:
-		set {-ram} to player's display name
-		broadcast "{-ram} has been set to %{-ram}%"
+    trigger:
+        set {-ram} to player's display name
+        broadcast "{-ram} has been set to %{-ram}%"
 command /test:
-	trigger:
-		broadcast ({-ram} ? 0)
+    trigger:
+        broadcast ({-ram} ? 0)
 ```
 
 ## Options
@@ -160,12 +160,12 @@ Options are fantastic for configurability; for example, if you plan on handing y
 You can use an option like this:
 ```vb
 options:
-	prefix: &2&lMyServerName
-	price: &6$400
+    prefix: &2&lMyServerName
+    price: &6$400
 
 command /ServerPrice:
-	trigger:
-		send "You can buy {@prefix} for {@price}" to player
+    trigger:
+        send "You can buy {@prefix} for {@price}" to player
 ```
 
 ## Tips and Tricks
