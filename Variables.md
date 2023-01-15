@@ -15,7 +15,7 @@ Such as what type of variable to use. So let's discuss the different variable ty
 Local variables will only be stored inside that trigger, meaning that you can only use them in that segment of the script.   
 They are suitable for quickly storing data you will not need elsewhere.
 
-The code below is a example of incorrectly using local variables.
+The code below is a example of WRONGLY using local variables.
 ```vb
 command /setspawn:
 	trigger:
