@@ -5,6 +5,7 @@ We will be able to check these stats in our scoreboard and also create a command
 2) [KDA and kills this game](#KD-and-stats-this-game)
 3) [Info checking](#Info-checking)
 4) [Scoreboard](#Scoreboard)
+5) [Full code](#Full code)
 
 ## Variable setting
 To get started we will need to create the variable setting.
@@ -90,4 +91,41 @@ command /toggle:
     aliases: /togglesc , /togglescoreboard , /scoreboard
     trigger:
         toggle player's scoreboard
+```
+## Full code
+```vb
+on death of player:
+  add 1 to {pvp::%victim's uuid%::deaths}
+  add 1 to {-DTG::%attacker's uuid%}
+  if attacker is a player:
+    add 1 to {pvp::%attacker's uuid%::kills}
+    add 1 to {-KTG::%attacker's uuid%}
+on join:
+  delete {-KTG::%player's uuid%}
+  delete {-DTG::%player's uuid%}
+on quit:
+  delete {-KTG::%player's uuid%}
+  delete {-DTG::%player's uuid%}
+command /pvpstats [<offline-player>]:
+  trigger:
+    if arg-1 is set:
+      send "&c&lPVP stats of %arg-1%"
+      send "&6Overall:"
+      send "&e>> Kills: &7%{pvp::%arg-1's uuid%::kills} ? 0%"
+      send "&e>> Deaths: &7%{pvp::%arg-1's uuid%::deaths} ? 0%"
+      send "&e>> KD: &7%({pvp::%arg-1's uuid%::kills} ? 0)/({pvp::%arg-1's uuid%::deaths} ? 0)%"
+      send "&6This game:"
+      send "&e>> Kills: &7%{-KTG::%arg-1's uuid%} ? 0%"
+      send "&e>> Deaths: &7%{-DTG::%arg-1's uuid%} ? 0%"
+      send "&e>> KD: &7%({-KTG::%arg-1's uuid%} ? 0)/({-DTG::%arg-1's uuid%} ? 0)%"
+    else:
+      send "&c&lPVP stats of %player%"
+      send "&6Overall:"
+      send "&e>> Kills: &7%{pvp::%player's uuid%::kills} ? 0%"
+      send "&e>> Deaths: &7%{pvp::%player's uuid%::deaths} ? 0%"
+      send "&e>> KD: &7%({pvp::%player's uuid%::kills} ? 0)/({pvp::%player's uuid%::deaths} ? 0)%"
+      send "&6This game:"
+      send "&e>> Kills: &7%{-KTG::%player's uuid%} ? 0%"
+      send "&e>> Deaths: &7%{-DTG::%player's uuid%} ? 0%"
+      send "&e>> KD: &7%({-KTG::%player's uuid%} ? 0)/({-DTG::%player's uuid%} ? 0)%"
 ```
