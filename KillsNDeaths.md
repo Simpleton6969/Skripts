@@ -5,7 +5,7 @@ We will be able to check these stats in our scoreboard and also create a command
 2) [KDA and kills this game](#KD-and-stats-this-game)
 3) [Info checking](#Info-checking)
 4) [Scoreboard](#Scoreboard)
-5) [Full code](#Full code)
+5) [Full code](#Full-code)
 
 ## Variable setting
 To get started we will need to create the variable setting.
