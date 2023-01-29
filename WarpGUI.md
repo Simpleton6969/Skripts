@@ -260,4 +260,5 @@ on tab complete:
 			set {_x} to loop-value
 			replace every "warp." in {_x} with ""
 			add {_x} to {_list2::*}
-		set tab completions for position 1 to {_list2::*}```
+		set tab completions for position 1 to {_list2::*}
+```
