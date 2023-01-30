@@ -45,7 +45,7 @@ We can use that by doing `"KD: %{pvp::%player's uuid%::kills}/({pvp::%player's u
 We will create a command to check either yours or another players pvp stats. 
 We will use an optional argument of offline player (default player if argument is not made) so we can get stats of offline players as well as online players and if an argument is not set it will display your stats.
 ```vb
-command /pvpstats [<offline-player>]:
+command /pvpstats [<offline player=%player%>]:
   trigger:
     if arg-1 is set:
       send "&c&lPVP stats of %arg-1%"
