@@ -43,7 +43,7 @@ We can use that by doing `"KD: %{pvp::%player's uuid%::kills}/({pvp::%player's u
 
 ## Info checking
 We will create a command to check either yours or another players pvp stats. 
-We will use an optional argument of offline-player so we can get stats of offline players as well as online players and if an argument is not set it will display your stats.
+We will use an optional argument of offline player (default player if argument is not made) so we can get stats of offline players as well as online players and if an argument is not set it will display your stats.
 ```vb
 command /pvpstats [<offline-player>]:
   trigger:
@@ -57,16 +57,6 @@ command /pvpstats [<offline-player>]:
       send "&e>> Kills: &7%{-KTG::%arg-1's uuid%} ? 0%"
       send "&e>> Deaths: &7%{-DTG::%arg-1's uuid%} ? 0%"
       send "&e>> KD: &7%({-KTG::%arg-1's uuid%} ? 0)/({-DTG::%arg-1's uuid%} ? 0)%"
-    else:
-      send "&c&lPVP stats of %player%"
-      send "&6Overall:"
-      send "&e>> Kills: &7%{pvp::%player's uuid%::kills} ? 0%"
-      send "&e>> Deaths: &7%{pvp::%player's uuid%::deaths} ? 0%"
-      send "&e>> KD: &7%({pvp::%player's uuid%::kills} ? 0)/({pvp::%player's uuid%::deaths} ? 0)%"
-      send "&6This game:"
-      send "&e>> Kills: &7%{-KTG::%player's uuid%} ? 0%"
-      send "&e>> Deaths: &7%{-DTG::%player's uuid%} ? 0%"
-      send "&e>> KD: &7%({-KTG::%player's uuid%} ? 0)/({-DTG::%player's uuid%} ? 0)%"
 ```
 ## Scoreboard
 Please look at my scoreboard tutorial [here](https://github.com/Simpleton6969/Skripts/blob/main/Scoreboard.md) for more information on this 
@@ -77,7 +67,7 @@ function scoreboard(p: player):
     set line 8 of {_p}'s scoreboard to "&6&lOverall:"
     set line 7 of {_p}'s scoreboard to "&eKills: &7%{pvp::%{_p}'s uuid%::kills} ? 0%"
     set line 6 of {_p}'s scoreboard to "&eDeaths: &7%{pvp::%{_p}'s uuid%::deaths} ? 0%"
-    set line 5 of {_p}'s scoreboard to "&eKD: %{pvp::%({_p}'s uuid%::kills} ? 0)/({pvp::%{_p}'s uuid%::deaths} ? 0)%"
+    set line 5 of {_p}'s scoreboard to "&eKD: %({pvp::%{_p}'s uuid%::kills} ? 0)/({pvp::%{_p}'s uuid%::deaths} ? 0)%"
     set line 4 of {_p}'s scoreboard to "&6&lThis game:"
     set line 3 of {_p}'s scoreboard to "&eKills: &7%{-KTG::%{_p}'s uuid%} ? 0%"
     set line 2 of {_p}'s scoreboard to "&eDeaths: &7%{-DTG::%{_p}'s uuid%} ? 0%"
@@ -106,26 +96,15 @@ on join:
 on quit:
   delete {-KTG::%player's uuid%}
   delete {-DTG::%player's uuid%}
-command /pvpstats [<offline-player>]:
+command /pvpstats [<offline player=%player%>]:
   trigger:
-    if arg-1 is set:
-      send "&c&lPVP stats of %arg-1%"
-      send "&6Overall:"
-      send "&e>> Kills: &7%{pvp::%arg-1's uuid%::kills} ? 0%"
-      send "&e>> Deaths: &7%{pvp::%arg-1's uuid%::deaths} ? 0%"
-      send "&e>> KD: &7%({pvp::%arg-1's uuid%::kills} ? 0)/({pvp::%arg-1's uuid%::deaths} ? 0)%"
-      send "&6This game:"
-      send "&e>> Kills: &7%{-KTG::%arg-1's uuid%} ? 0%"
-      send "&e>> Deaths: &7%{-DTG::%arg-1's uuid%} ? 0%"
-      send "&e>> KD: &7%({-KTG::%arg-1's uuid%} ? 0)/({-DTG::%arg-1's uuid%} ? 0)%"
-    else:
-      send "&c&lPVP stats of %player%"
-      send "&6Overall:"
-      send "&e>> Kills: &7%{pvp::%player's uuid%::kills} ? 0%"
-      send "&e>> Deaths: &7%{pvp::%player's uuid%::deaths} ? 0%"
-      send "&e>> KD: &7%({pvp::%player's uuid%::kills} ? 0)/({pvp::%player's uuid%::deaths} ? 0)%"
-      send "&6This game:"
-      send "&e>> Kills: &7%{-KTG::%player's uuid%} ? 0%"
-      send "&e>> Deaths: &7%{-DTG::%player's uuid%} ? 0%"
-      send "&e>> KD: &7%({-KTG::%player's uuid%} ? 0)/({-DTG::%player's uuid%} ? 0)%"
+    send "&c&lPVP stats of %arg-1%"
+    send "&6Overall:"
+    send "&e>> Kills: &7%{pvp::%arg-1's uuid%::kills} ? 0%"
+    send "&e>> Deaths: &7%{pvp::%arg-1's uuid%::deaths} ? 0%"
+    send "&e>> KD: &7%({pvp::%arg-1's uuid%::kills} ? 0)/({pvp::%arg-1's uuid%::deaths} ? 0)%"
+    send "&6This game:"
+    send "&e>> Kills: &7%{-KTG::%arg-1's uuid%} ? 0%"
+    send "&e>> Deaths: &7%{-DTG::%arg-1's uuid%} ? 0%"
+    send "&e>> KD: &7%({-KTG::%arg-1's uuid%} ? 0)/({-DTG::%arg-1's uuid%} ? 0)%"
 ```
