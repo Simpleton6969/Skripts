@@ -53,6 +53,8 @@ And that summarises basic functions...... but why dont we make the function retu
 
 ## Returning a value
 There are many things we can return to the skript, such as: numbers, integers, strings, booleans(true/false), object and so on.
+It is important to note that returning a value instantly exits the function.
+
 Lets use that to create a system for basic cooldowns. 
 For a more in detail tutorial check [my cooldown tutorial](https://github.com/Simpleton6969/Skripts/blob/main/Cooldown.md)
 ```vb
