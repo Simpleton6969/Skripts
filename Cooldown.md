@@ -1,11 +1,11 @@
 Cooldown skript you say? Look no further!
 No requirements and easy to change for your situation.
 
-1) [Adding cooldown function](Adding-to-cooldown-function)
-2) [Checking cooldown function](Cooldown-checking-function)
-3) [Use in code](Use-in-code)
-4) [Single use Full code](Single-use-with-metadata-Full-code)
-5) [Multiple uses Full code](Several-uses-with-vars-Full-code)
+1) [Adding cooldown function](#Adding-to-cooldown-function)
+2) [Checking cooldown function](#Cooldown-checking-function)
+3) [Use in code]#(Use-in-code)
+4) [Single use Full code](£Single-use-with-metadata-Full-code)
+5) [Multiple uses Full code](#Several-uses-with-vars-Full-code)
 
 
 
