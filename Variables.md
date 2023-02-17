@@ -2,7 +2,7 @@
 Your variables are wrong! That is why you are here.    
 No worries! We can fix that quickly.
 1) [Local variables](#local-variables)
-2) [Gloabl variables](#global-variables)
+2) [Global variables](#global-variables)
 3) [List variables](#list-variables)
 4) [RAM variables](#ram-variables)
 5) [Option](#options)
