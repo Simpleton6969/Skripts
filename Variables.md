@@ -179,6 +179,8 @@ Instead of `{var.%player%}` use `{var::%player's uuid%}`
 Metadata is another form of data storage that can be *attached* to players.
 Metadata tags are deleted once a player leaves or server restarts.
 It can be accessed and set the same way variables can
+
+Some examples below:
 ```
 set (metadata value "tagname" of player) to 10 seconds after now
 if (metadata tag "tagname" of attacker) > now:
