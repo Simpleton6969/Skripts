@@ -7,6 +7,7 @@ No worries! We can fix that quickly.
 4) [RAM variables](#ram-variables)
 5) [Option](#options)
 6) [Tips and tricks](#tips-and-tricks)
+7) [Metadata](#Metadata)
 
 There are essential things to consider when setting a variable.    
 Such as what type of variable to use. So let's discuss the different variable types and how to use them.
@@ -174,3 +175,14 @@ This is bad because if the player changes their name, they will lose all of thei
 To fix this, all we need to do is replace our variables with better variables :D.   
 Instead of `{var.%player%}` use `{var::%player's uuid%}`
 
+## Metadata
+Metadata is another form of data storage that can be *attached* to players.
+Metadata tags are deleted once a player leaves or server restarts.
+It can be accessed and set the same way variables can
+```
+set (metadata value "tagname" of player) to 10 seconds after now
+if (metadata tag "tagname" of attacker) > now:
+```
+Metadata is a great storage method for inventories and combat logging.
+
+It is important to note with metadata that putting the tags in () when setting or checking them will greatly decrease your reload speed.
