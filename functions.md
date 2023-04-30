@@ -27,7 +27,8 @@ function functionName():
   ```
 ## Parameters
 A paramater is an argument for your function.
-You can view a [full list of Parameters and a brief description here](https://dev.bukkit.org/projects/skript/pages/custom-commands#title-3)
+You can use any datatype for parameters, including but not limited to [the paramaters linked here](https://dev.bukkit.org/projects/skript/pages/custom-commands#title-3)
+You can also use datatypes from addons.
   
 Because a function is not something a player can call there are no players inside of a function event. 
 So we will have to use a player Parameters.
