@@ -50,7 +50,7 @@ Create a folder named `yamls` and create a file inside of that named `warp.yml`
 To connect and change those yml values we need to load the yml file.
 ```vb
 on load:
-		load yaml "plugins/Skript/yamls/warp.yml" as "warp"
+	load yaml "plugins/Skript/yamls/warp.yml" as "warp"
 ```
 We can now reference that file with `from "warp"`
 We can now replace `#CODE GOES HERE` with out setwarp code
