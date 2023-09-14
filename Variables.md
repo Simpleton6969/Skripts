@@ -143,7 +143,8 @@ With:
 		
 		backup interval: 2 hours
 ```
-You can test if you have ram vars enabled by using this ssript below.   
+Ensure that you reload your skript config by doing `/skript reload config`.
+You can test if you have ram vars enabled by using this skript below.   
 Simply set the variable, restart your server and test the variable.   
 If your name is sent in chat, then ram vars aren't enabled, if 0 is, ram vars are enabled.
 ```vb
